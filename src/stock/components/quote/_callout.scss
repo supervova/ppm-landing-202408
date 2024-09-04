@@ -1,9 +1,0 @@
-@use '../../styles/abstracts' as *;
-
-.callout {
-  @include text-format(body-lg);
-
-  background: var(--color-brand-bg);
-  border-radius: var(--border-radius-base);
-  padding: var(--padding-x-box);
-}
