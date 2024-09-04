@@ -18,12 +18,17 @@ mixin formItem(label, name, type='text', labelClass=false, alert=false)
   if alert
     small(role='alert')= alert
 
+//- Responsive image
+mixin rImage(basePath, alt = '')
+  - const highResPath = basePath.replace(/(\.\w+)$/, '@2x$1')
+  img(src=`/assets/img/${basePath}`, srcset=`/assets/img/${basePath}, /assets/img/${highResPath} 2x`, alt=alt)
+
 //- List view snippet
 mixin snippet(title, summary, img=false, link='#')
   article.snippet(id!=attributes.id, itemscope, itemtype='http://schema.org/Article')
     if img
       figure.snippet__img
-        img(src='/assets/img/' + img, alt=title)
+        img(src=`/assets/img/${img}`, alt=title)
     .snippet__copy
       a(href=link)
         h3(itemprop='headline')= title

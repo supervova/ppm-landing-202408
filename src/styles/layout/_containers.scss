@@ -14,17 +14,12 @@
 }
 
 .main {
-  padding-top: var(--padding-top-base);
-
-  @media (--tablet) {
-    padding-top: var(--padding-top-lg);
-  }
+  padding-top: var(--spacer);
 }
 
-.main.col-1\/1 {
-  padding-top: var(--padding-top-lg);
-
-  @media (--tablet) {
-    padding-top: var(--padding-top-xl);
-  }
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2);
+  margin-block: var(--spacer);
 }

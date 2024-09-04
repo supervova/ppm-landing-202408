@@ -6,7 +6,7 @@ import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 import { paths } from './paths.js';
 
-const { src, dest } = gulp;
+const { src, dest, parallel } = gulp;
 
 /**
  * Copies files that do not need to be optimized or built to the dist folder.
@@ -14,11 +14,25 @@ const { src, dest } = gulp;
  *
  * @returns {NodeJS.WritableStream} The Gulp stream.
  */
-export default function copyFiles() {
-  return src(paths.files.src)
+function copyAssets() {
+  return src(paths.files.src.assets, { encoding: false })
     .pipe(
       plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
     )
-    .pipe(newer(paths.files.dest))
-    .pipe(dest(paths.files.dest));
+    .pipe(newer(paths.files.dest.assets))
+    .pipe(dest(paths.files.dest.assets));
+}
+
+function copyRootFiles() {
+  return src(paths.files.src.root, { encoding: false })
+    .pipe(
+      plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+    )
+    .pipe(newer(paths.files.dest.root))
+    .pipe(dest(paths.files.dest.root));
+}
+
+// Измените экспорт, чтобы возвращать функцию, выполняющую параллельно задачи
+export default function copyFiles(done) {
+  return parallel(copyAssets, copyRootFiles)(done);
 }

@@ -62,6 +62,7 @@ const processStyles = (source, subtitle, destination /* , purgeContent */) =>
           stage: 2,
           features: {
             'cascade-layers': false,
+            'color-mix': true,
             'custom-media-queries': true,
             'custom-properties': false,
             'custom-selectors': true,

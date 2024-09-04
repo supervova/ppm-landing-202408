@@ -1,0 +1,9 @@
+{
+  "name": "Playphrase.me language learning method",
+  "short_name": "Playphrase",
+  "icons": [
+    { "src": "/assets/img/components/icon/icon-192.png", "sizes": "192x192", "type": "image/png" }
+  ],
+  "background_color": "#100E12",
+  "theme_color": "#100E12"
+}

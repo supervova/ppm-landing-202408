@@ -7,25 +7,18 @@
   // 🎨 COLORS
   // #region
 
-  --h-blue:   210;
-  --h-green:  110;
-  --h-red:    350;
-  --h-yellow: 60;
+  --h-blue:   232;
+  --h-green:  122;
+  --h-red:    2;
+  --h-yellow: 62;
 
-  --h:  10;
-  --s:  87%;
-  --sn: 16%;  // neutral
-  --l:  69%;
+  --h:  272;
+  --s:  82%;
+  --sn: 12%;  // neutral
+  --l:  74%;
 
   // DECLARATIVE PALETTE
   --color-brand-primary:  hsl(var(--h) var(--s) var(--l));
-
-  --color-alpha-dark-max: rgb(0 0 0);
-  --color-alpha-dark-900: rgb(0 0 0 / 0.87);
-  --color-alpha-dark-600: rgb(0 0 0 / 0.6);
-  --color-alpha-dark-400: rgb(0 0 0 / 0.38);
-  --color-alpha-dark-100: rgb(0 0 0 / 0.12);
-  --color-alpha-dark-min: rgb(0 0 0 / 0.05);
 
   --color-alpha-light-max: hsl(0 0% 100%);
   --color-alpha-light-900: hsl(0 0% 100% / 0.87);
@@ -34,12 +27,13 @@
   --color-alpha-light-200: hsl(0 0% 100% / 0.2);
   --color-alpha-light-min: hsl(0 0% 100% / 0.07);
 
-  --color-shadow:          var(--h) var(--sn) 10%;
+  --color-shadow:          var(--h) var(--sn) 12%;
 
   --color-neutral-950:     hsl(var(--h) var(--sn) 14%);
   --color-neutral-900:     hsl(var(--h) var(--sn) 20%);
 
   --backdrop-filter-elevated: #{saturate(180%) blur(20px)};
+  --backdrop-filter-blur:     #{blur(20px)};
 
   // Adjustments
   --filter-brightness-up:   brightness(1.16);
@@ -61,59 +55,57 @@
     Inter,
     sans-serif;
 
-  --font-family-mono:
-    ui-monospace,
-    SFMono-Regular,
-    Monaco,
-    Consolas,
-   'Andale Mono',
-    monospace,
-    var(--font-family-emoji);
-
   --font-family-base:   var(--font-family-sans), var(--font-family-emoji);
   --font-family-titles: var(--font-family-base);
-  --font-family-doc:    var(--font-family-base);
 
   --font-size-doc:         #{$html-font-size};
 
-  --font-weight-titles:    600;
-  --font-weight-titles-sm: 500;
-  --font-weight-titles-xs: 400;
+  --font-weight-titles-max: 700;
+  --font-weight-titles:     600;
+  --font-weight-titles-min: 400;
 
-  --font-size-hero-title:      #{rem(34)};
-  --font-weight-hero-title:    var(--font-weight-titles-sm);
-  --letter-spacing-hero-title: 0;
-  --line-height-hero-title:    #{math.div(40, 34)};
-  --padding-top-hero-title:    #{rem(7)};
-  --padding-bottom-hero-title: #{rem(1)};
+  --font-size-hero-title:      #{rem(40)};
+  --font-weight-hero-title:    var(--font-weight-titles);
+  --letter-spacing-hero-title: #{rem(1) * -1};
+  --line-height-hero-title:    #{math.div(48, 40)};
+  --padding-top-hero-title:    #{rem(1)};
+  --padding-bottom-hero-title: #{rem(7)};
 
-  --font-size-title:      #{rem(28)};
+  --font-size-title:      #{rem(40)};
   --font-weight-title:    var(--font-weight-titles);
-  --letter-spacing-title: 0;
-  --line-height-title:    #{math.div(32, 28)};
-  --padding-top-title:    #{rem(6)};
-  --padding-bottom-title: #{rem(2)};
+  --letter-spacing-title: #{rem(1) * -1};
+  --line-height-title:    #{math.div(48, 40)};
+  --padding-top-title:    #{rem(1)};
+  --padding-bottom-title: #{rem(7)};
 
-  --font-size-h2:       #{rem(22)};
-  --font-weight-h2:     var(--font-weight-titles);
-  --letter-spacing-h2:  0;
-  --line-height-h2:     #{math.div(24, 22)};
-  --padding-top-h2:     #{rem(4)};
-  --padding-bottom-h2:  #{rem(4)};
+  --font-size-subhead-lg:       #{rem(32)};
+  --font-weight-subhead-lg:     var(--font-weight-titles);
+  --letter-spacing-subhead-lg:  0;
+  --line-height-subhead-lg:     #{math.div(40, 32)};
+  --padding-top-subhead-lg:     0;
+  --padding-bottom-subhead-lg:  0;
+
   --margin-top-subhead: var(--size-line);
 
-  --font-size-big:      #{rem(17)};
-  --font-weight-big:    var(--font-weight-titles-sm);
-  --letter-spacing-big: 0;
-  --line-height-big:    #{math.div(24, 17)};
-  --padding-top-big:    #{rem(6)};
-  --padding-bottom-big: #{rem(2)};
+  --font-size-body-lg:      #{rem(20)};
+  --font-weight-body-lg:    var(--font-weight-titles);
+  --letter-spacing-body-lg: 0;
+  --line-height-body-lg:    #{math.div(32, 20)};
+  --padding-top-body-lg:    #{rem(1)};
+  --padding-bottom-body-lg: #{rem(7)};
 
   --font-size-base:      #{rem(17)};
+  --font-weight-base:    var(--font-weight-titles);
   --line-height-base:    #{math.div(24, 17)};
   --letter-spacing-base: 0;
   --padding-top-base:    #{rem(6)};
   --padding-bottom-base: #{rem(2)};
+
+  --font-size-label:      #{rem(12)};
+  --letter-spacing-label: 0;
+  --line-height-label:    #{math.div(16, 12)};
+  --padding-top-label:    #{rem(4)};
+  --padding-bottom-label: #{rem(4)};
 
   --font-size-caption:      #{rem(12)};
   --letter-spacing-caption: 0;
@@ -155,7 +147,7 @@
 
   --padding-y-btn:       0;
   --padding-x-btn:       var(--size-2);
-  --height-btn:          var(--size-4);
+  --height-btn:          var(--size-5);
 
   --padding-x-input:     var(--size-2);
   --padding-y-input:     #{rem(5)};
@@ -169,11 +161,14 @@
   // Rectangular Images
   --border-radius-xs:   var(--size-half);
 
-  // Buttons
+  // Supporting token
   --border-radius-sm:   var(--size-1);
 
+  // Buttons
+  --border-radius-base: var(--size-1p5);
+
   // Boxes (cards, alerts, covers etc), Popovers, Pickers, Tooltips
-  --border-radius-base: var(--size-2);
+  --border-radius-md:   var(--size-2);
 
   // Drawers
   --border-radius-lg:   var(--size-3);
@@ -277,54 +272,47 @@
 
   // 📋 TABLET OVERRIDES
   @media (--tablet) {
-    --font-size-hero-title:      #{rem(56)};
-    --font-weight-hero-title:    var(--font-weight-titles-xs);
-    --line-height-hero-title:    #{math.div(64, 56)};
+    --font-size-hero-title:      #{rem(80)};
+    --font-weight-hero-title:    var(--font-weight-titles-max);
+    --line-height-hero-title:    #{math.div(96, 80)};
     --padding-top-hero-title:    #{rem(3)};
     --padding-bottom-hero-title: #{rem(5)};
 
-    --font-size-title:      #{rem(56)};
-    --font-weight-title:    var(--font-weight-titles-xs);
-    --line-height-title:    #{math.div(64, 56)};
+    --font-size-title:      #{rem(80)};
+    --font-weight-title:    var(--font-weight-titles);
+    --line-height-title:    #{math.div(96, 80)};
     --padding-top-title:    #{rem(3)};
     --padding-bottom-title: #{rem(5)};
 
-    --font-size-h2:      #{rem(43)};
-    --font-weight-h2:    var(--font-weight-titles-xs);
-    --line-height-h2:    #{math.div(48, 43)};
-    --padding-top-h2:    0;
-    --padding-bottom-h2: 0;
+    --font-size-subhead-lg:      #{rem(40)};
+    --font-weight-subhead-lg:    var(--font-weight-titles);
+    --line-height-subhead-lg:    #{math.div(48, 40)};
+    --padding-top-subhead-lg:    #{rem(1)};
+    --padding-bottom-subhead-lg: #{rem(7)};
 
-    --font-size-big:      #{rem(40)};
-    --font-weight-big:    var(--font-weight-titles-xs);
-    --line-height-big:    #{math.div(40, 30)};
-    --padding-top-big:    #{rem(1)};
-    --padding-bottom-big: #{rem(7)};
+    --font-size-body-lg:      #{rem(26)};
+    --font-weight-body-lg:    var(--font-weight-titles);
+    --line-height-body-lg:    #{math.div(32, 26)};
+    --padding-top-body-lg:    #{rem(7)};
+    --padding-bottom-body-lg: #{rem(1)};
+
+    --font-size-base:      #{rem(20)};
+    --line-height-base:    #{math.div(32, 20)};
+    --letter-spacing-base: 0;
+    --padding-top-base:    #{rem(1)};
+    --padding-bottom-base: #{rem(7)};
+
+    --font-size-label:      #{rem(14)};
+    --letter-spacing-label: 0;
+    --line-height-label:    #{math.div(20, 14)};
+    --padding-top-label:    #{rem(1)};
+    --padding-bottom-label: #{rem(3)};
 
     --spacer: calc(var(--size-line) * 3);
 
     --padding-x-box: var(--size-line);
-    --padding-x-container: var(--size-5);
-  }
+    --padding-x-container: var(--size-6);
 
-  // 🖥️ DESKTOP OVERRIDES
-  @media (--desktop) {
-    --font-size-ui-title: #{rem(11)};
-    --letter-spacing-ui-title: #{rem(0.1)};
-    --line-height-ui-title: #{math.div(16, 11)};
-    --padding-top-ui-title: #{rem(4)};
-    --padding-bottom-ui-title: #{rem(4)};
-
-    --font-size-ui-label: #{rem(14)};
-    --letter-spacing-ui-label: 0;
-    --line-height-ui-label: #{math.div(20, 14)};
-    --padding-top-ui-label: #{rem(1)};
-    --padding-bottom-ui-label: #{rem(3)};
-
-    // Spacing
-    --padding-bottom-list: #{rem(16)};
-    --padding-bottom-li:   var(--size-1);
-
-    --height-btn:          var(--size-4);
+    --height-btn:          var(--size-6);
   }
 }

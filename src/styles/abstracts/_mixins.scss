@@ -185,10 +185,10 @@
 
 @mixin label($uppercase: true) {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-caption);
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  line-height: var(--line-height, var(--line-height-caption));
+  font-size: var(--font-size-label);
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  line-height: var(--line-height, var(--line-height-label));
 
   @if $uppercase {
     text-transform: uppercase;
@@ -417,7 +417,8 @@
 
 @mixin button(
   $btn-background: var(--color-ink-min),
-  $btn-border-radius: var(--border-radius-pill),
+  $btn-background-hover: var(--color-brand-bg),
+  $btn-border-radius: var(--border-radius-base),
   $btn-border: 0,
   $btn-box-shadow-hover: none,
   $btn-box-shadow: none,
@@ -442,7 +443,7 @@
   max-width: 100%;
   height: var(--height-btn);
 
-  @include label(false);
+  @include label(true);
   @include button-base();
 
   // Use child span for text truncating with ellipsis
@@ -457,7 +458,7 @@
   @media (any-hover: hover) and (pointer: fine) {
     &:hover {
       box-shadow: $btn-box-shadow-hover;
-      filter: brightness(var(--filter-brightness-up));
+      filter: var(--filter-brightness-up);
       text-decoration: none;
     }
   }
@@ -470,14 +471,8 @@
     box-shadow var(--duration-xxs) var(--easing-base);
 
   @include button(
-    $btn-background: var(--color-brand-gradient-dark),
-    $btn-background-hover: var(--color-brand-gradient-dark),
-    $btn-color: var(--color-ink-inverse-base),
-    $btn-box-shadow: (
-      0 1px 1px hsl(var(--color-shadow) / 0.24),
-      inset 0 0 0 1px hsl(var(--color-shadow) / 0.24),
-      inset 0 2px 0 hsl(var(--h) var(--sn) 99% / 0.16),
-    )
+    $btn-background: var(--color-brand-gradient),
+    $btn-color: var(--color-ink-base),
   );
 
   .icon {

@@ -1,49 +1,42 @@
-@mixin dark {
-  color-scheme: dark;
+[data-theme='dark'],
+:root:not([data-theme='light']) {
+  // #region: Colors 🎨
 
-  --sd: 80%; // desaturate colors by 4-10%
+  // SEMANTIC BRAND
+  --color-brand-bg:      hsl(var(--h) var(--s) 20%);
+  --color-brand-text:    hsl(var(--h) var(--s) 85%);
+  --color-brand-ink-2ry: var(--color-brand-primary);
+  --color-brand-border:  hsl(var(--h) var(--s) 32%);
+  --color-brand-gradient:
+    linear-gradient(
+      hsl(var(--h) var(--s) 58%),
+      hsl(var(--h) var(--s) 48%)
+    );
 
-  /*
-  Copy from theme-light and update:
-  Semantic Brand
-  Backgrounds
-  Inks
-    [base]
-    Inverse
-    Neutrals
-  Feedback
-  Code (opt.)
-  Shadows Opacity
-    Ring
-    Low
-  Icons
-  Scroll thumb and track
+  --color-bg-base:         hsl(var(--h) var(--sn) 6%);
+  --color-bg-2ry:          hsl(var(--h) var(--sn) 24%);
+  --color-bg-bold:         hsl(--color-neutral-900);
+  --color-bg-layer-01:     hsl(var(--h) var(--sn) 12%);
+  --color-bg-layer-02:     hsl(var(--h) var(--sn) 18%);
+  --color-bg-layer-03:     var(--color-bg-2ry);
 
-  Or set the minimal dark mode */
-  * {
-    background-color: inherit;
-    color: inherit;
-  }
+  --color-bg-scrim:        var(--color-alpha-dark-400);
 
-  html {
-    filter: invert(1) hue-rotate(180deg);
-  }
+  --color-ink-base:         var(--color-alpha-light-900);
+  --color-ink-2ry:          var(--color-alpha-light-600);
+  --color-ink-3ry:          var(--color-alpha-light-400);
+  --color-ink-icon:         var(--color-ink-3ry);
+  --color-ink-border:       var(--color-alpha-light-200);
+  --color-ink-min:          var(--color-alpha-light-min);
+  --color-ink-link:         var(--color-brand-text);
+  --color-ink-inverse-glow: var(--color-alpha-light-min);
 
-  // Add a bit of transparency so light media isn't so glaring in dark mode
-  img,
-  video {
-    opacity: 0.8;
-  }
-}
+  // Optional - code: number, property, string, variable, tag, function, operator
 
-@media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    @include dark;
-  }
-}
+  --shadow-ring:        0.04;
+  --shadow-opacity-low: 0.06;
 
-/* Dark theme (Forced)
-Enabled if forced with data-theme="dark" */
-[data-theme='dark'] {
-  @include dark;
+  --color-scroll-thumb: var(--color-alpha-light-200);
+  --color-scroll-track: trabsparent;
+  // #endregion
 }

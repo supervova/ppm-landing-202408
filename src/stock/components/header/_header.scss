@@ -314,10 +314,10 @@
 }
 
 .header__popover-title {
-  font-size: var(--font-size-big);
-  line-height: var(--line-height-big);
-  padding-top: var(--padding-top-big);
-  padding-bottom: var(--padding-bottom-big);
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+  padding-top: var(--padding-top-body-lg);
+  padding-bottom: var(--padding-bottom-body-lg);
 
   + p {
     color: var(--color-ink-2ry);

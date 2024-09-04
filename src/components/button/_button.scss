@@ -10,7 +10,7 @@ input[type='submit'],
 input[type='button'],
 input[type='reset'],
 a[role='button'] {
-  --btn-border-outline: 1px solid var(--color-brand-border);
+  --btn-border-outline: 1px solid var(--color-ink-3ry);
   --btn-color-outline: var(--color-brand-text);
 
   @include button; // Универсальные стили кнопок
@@ -23,8 +23,12 @@ a[role='button'] {
 }
 
 /* -----------------------------------------------------------------------------
- * OUTLINE AND GHOST BUTTONS
+ * PRIMARY, OUTLINE AND GHOST BUTTONS
  * -------------------------------------------------------------------------- */
+
+.btn.is-primary {
+  @include button-primary;
+}
 
 .btn.is-outline,
 .btn.is-ghost {
@@ -45,6 +49,37 @@ a[role='button'] {
 
 .btn.is-outline {
   border: var(--btn-border-outline);
+}
+
+/* -----------------------------------------------------------------------------
+ * LINK ALIKE
+ * -------------------------------------------------------------------------- */
+
+.link {
+  appearance: none;
+  background-color: transparent;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: 0.1px;
+  line-height: inherit;
+  padding-block: 0;
+  padding-inline-start: 0;
+  text-align: inherit;
+  text-transform: none;
+  vertical-align: baseline;
+  height: auto;
+}
+
+.link.is-modal-toggle {
+  background-image: url('/assets/img/components/icon/extra/icon-open-modal.png');
+  background-position: right calc(50% + 1px);
+  background-repeat: no-repeat;
+  background-size: var(--size-2p5);
+  padding-inline-end: var(--size-3);
+
+  @media (--retina) {
+    background-image: url('/assets/img/components/icon/extra/icon-open-modal@2x.png');
+  }
 }
 
 /* -----------------------------------------------------------------------------

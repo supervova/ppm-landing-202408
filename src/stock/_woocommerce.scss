@@ -707,7 +707,7 @@ td > .woocommerce-shipping-methods {
 
 // Heading 'Account'
 .woocommerce-MyAccount-navigation-link--dashboard {
-  @include text-format(big);
+  @include text-format(body-lg);
 
   margin: 0 0 var(--size-line);
 
@@ -798,7 +798,7 @@ td > .woocommerce-shipping-methods {
 }
 
 .woocommerce-EditAccountForm legend {
-  @include text-format(big);
+  @include text-format(body-lg);
   margin: 0;
 }
 

@@ -28,7 +28,7 @@
 
 .logo__logotype,
 .logo__tagline {
-  @include text-format(small);
+  @include text-format(caption);
 }
 
 .logo__logotype {

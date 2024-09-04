@@ -104,12 +104,12 @@ Responsive card: fit image height to text block height
 }
 
 .section__heading {
-  @include text-format(h2);
+  @include text-format(subhead-lg);
   margin: 0;
 }
 
 .section__summary {
-  @include text-format(big);
+  @include text-format(body-lg);
   margin: 0;
 }
 
@@ -217,7 +217,7 @@ $plan-size-radio: var(--size-2p5);
 
 /* h2-h4 */
 .plan__type {
-  @include text-format(big);
+  @include text-format(body-lg);
 
   color: var(--color-ink-inverse-base);
   margin-bottom: calc(var(--size-1) * -1);

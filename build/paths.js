@@ -71,13 +71,19 @@ const paths = {
   },
 
   files: {
-    src: [
-      `${srcBase}/**/*.+(mp4|ogg|ogv|webm)`,
-      `${srcBase}/**/*.zip`,
-      `${srcBase}/assets/**/!(img)/**/*`,
-      `!${srcBase}/assets/img/**/*`,
-    ],
-    dest: destAssets,
+    src: {
+      assets: [
+        `${srcBase}/**/*.+(mp4|ogg|ogv|webm)`,
+        `${srcBase}/**/*.zip`,
+        `${srcBase}/assets/**/!(img)/**/*`,
+        `!${srcBase}/assets/img/**/*`,
+      ],
+      root: ['./favicon.ico', './manifest.json', './CNAME'],
+    },
+    dest: {
+      assets: destAssets,
+      root: root.dest.site,
+    },
   },
 };
 

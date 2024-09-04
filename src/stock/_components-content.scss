@@ -396,7 +396,7 @@ body {
 }
 
 .pull-quote > p {
-  @include text-format(big);
+  @include text-format(body-lg);
 
   color: var(--color-brand-ink-2ry);
 }

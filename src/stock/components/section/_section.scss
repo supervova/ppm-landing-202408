@@ -23,13 +23,13 @@
 }
 
 .section__title {
-  @include text-format(h2);
+  @include text-format(subhead-lg);
 
   margin: 0;
 }
 
 .section__summary {
-  @include text-format(big);
+  @include text-format(body-lg);
   margin: 0;
 }
 // #endregion

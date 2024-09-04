@@ -8,14 +8,14 @@
 
 /* Basic modal styling for dialog element */
 .modal {
-  --modal-background: var(--color-bg-base);
+  --modal-background: var(--color-bg-layer-03);
   --modal-border-radius: var(--border-radius-lg);
   --modal-padding-x: var(--padding-x-box);
+  --modal-overlay-background-color: color-mix(in hsl, var(--color-bg-2ry) 50%, transparent);
 
-  backdrop-filter: var(--modal-overlay-backdrop-filter);
   background-color: var(--modal-overlay-background-color);
+  backdrop-filter: var(--backdrop-filter-blur);
   border: 0;
-  color: var(--color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,8 +24,11 @@
   inset: 0;
   transition: opacity var(--duration-md) var(--easing-base);
   opacity: 1;
-  width: 100%;
-  height: 100%;
+  transition-behavior: allow-discrete;
+  width: inherit;
+  min-width: 100%;
+  height: inherit;
+  min-height: 100%;
 
   &:not([open]) {
     display: none;
@@ -37,22 +40,27 @@
   }
 }
 
-.modal__base {
+.modal__base,
+.modal > article {
+  --color-scroll-track: transparent;
+
   background: var(--modal-background);
   border: var(--size-1) solid transparent;
-  border-radius: var(--modal-border-radius);
+  border-radius: var(--modal-border-radius) var(--modal-border-radius) 0 0;
   box-shadow: var(--box-shadow-level-03);
+  color: var(--color-ink-base);
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: var(--size-5) auto 0;
   padding: 0;
   overflow-y: auto;
   position: fixed;
   inset: 0;
-  transition: translate var(--duration-md) var(--easing-base),
-              opacity var(--duration-md) var(--easing-base);
+  transition:
+    translate var(--duration-md) var(--easing-base),
+    opacity var(--duration-md) var(--easing-base);
   translate: 0;
-  width: min(100%, var(--width-lg));
+  width: min(100%, var(--width-xl));
   height: calc(100% - var(--size-5));
 
   @starting-style {
@@ -65,6 +73,8 @@
 
   @media (--tablet) {
     border-radius: var(--modal-border-radius);
+    margin: auto;
+    padding-inline: var(--size-1);
     height: max-content;
     max-height: calc(100vh - var(--size-8));
 
@@ -85,38 +95,31 @@
 // #endregion
 
 /* -----------------------------------------------------------------------------
- * SCRIMS
+ * HEADER
  * -------------------------------------------------------------------------- */
 // #region
-/* Optional: Scrims (faded areas) at the top and bottom of the modal */
-.modal::before,
-.modal::after {
-  display: block;
-  content: '';
+
+:where(.modal article) header {
+  padding-inline: var(--size-2p5);
+
+  @media (--tablet) {
+    padding-inline: var(--size-6);
+  }
+}
+
+.modal__close {
+  aspect-ratio: 1;
+  align-self: flex-end;
+  backdrop-filter: var(--backdrop-filter-blur);
+  border-radius: var(--border-radius-pill);
+  height: var(--height-btn);
+  padding: 0;
   position: sticky;
-  right: 0;
-  left: 0;
-  height: var(--size-4);
-  z-index: 1;
+  top: var(--size-1);
+  right: var(--size-1);
+  z-index: 1000;
 }
 
-.modal::before {
-  background-image: linear-gradient(
-    var(--modal-background) 1%,
-    transparent 33.33%,
-    transparent
-  );
-  top: 0;
-}
-
-.modal::after {
-  background-image: linear-gradient(
-    transparent,
-    transparent 66.67%,
-    var(--modal-background)
-  );
-  bottom: 0;
-}
 // #endregion
 
 /* -----------------------------------------------------------------------------
@@ -125,10 +128,19 @@
 // #region
 
 /* Basic padding for modal content */
-.modal__body,
-.modal__content {
-  padding-right: var(--modal-padding-x);
-  padding-left: var(--modal-padding-x);
+.modal__body {
+  color: var(--color-ink-2ry);
+  padding-inline: var(--size-2p5);
+  padding-bottom: var(--size-2p5);
+
+  @media (--tablet) {
+    padding-inline: var(--size-6);
+    padding-bottom: var(--size-6);
+  }
+}
+
+.modal__body h3 {
+  color: var(--color-ink-base);
 }
 
 // #endregion
@@ -157,12 +169,18 @@
 // #region
 
 /* Disable scroll on the html root when the modal is open */
-html:has(dialog[open]) {
+html:has(dialog[open]),
+body:has(dialog[open]) {
   overflow: hidden;
 
   .modal {
     pointer-events: auto;
     touch-action: auto;
+  }
+
+  .header {
+    opacity: 0;
+    padding-inline-end: var(--scroll-width, rem(11));
   }
 }
 
