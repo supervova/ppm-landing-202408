@@ -689,6 +689,11 @@
     margin-top: 0;
     margin-bottom: var(--size-2);
   }
+  ol ol,
+  ul ul,
+  ul ol {
+    padding-left: var(--size-2);
+  }
   ul {
     padding-left: var(--size-3);
   }
@@ -702,13 +707,10 @@
     content: "•  ";
   }
   ol {
-    --start-counter: 1; /* Устанавливаем начальное значение для счетчика */
-    counter-reset: list-item calc(var(--start-counter) - 1);
     list-style: none;
     padding-inline: 0;
   }
   ol li {
-    counter-increment: list-item; /* Шаг увеличения всегда равен единице */
     position: relative;
     padding-left: 2em;
   }
@@ -2083,7 +2085,7 @@
   }
   @media (--tablet) {
     .cefr {
-      top: 0;
+      top: 2.5rem;
     }
   }
   .cefr img {
@@ -2154,6 +2156,9 @@
     background: linear-gradient(to bottom right, hsl(var(--h), var(--s), 99%), var(--color-brand-primary));
     background-clip: text;
   }
+  .section {
+    position: relative;
+  }
   @media (--tablet) {
     .section .container {
       --columns: 1fr 4fr;
@@ -2223,11 +2228,28 @@
     right: var(--size-2);
     left: auto;
   }
-  .is-playphrase-way {
-    position: relative;
-  }
-  .is-playphrase-way .section__image img {
+  .section__image img {
     will-change: translate;
+  }
+  @media (--tablet) {
+    .is-intro .section__image {
+      grid-column-start: 2;
+    }
+  }
+  @media (--tablet-l) {
+    .is-intro .section__image {
+      grid-column-start: unset;
+      position: absolute;
+      top: 80%;
+      left: -200px;
+      width: min(40vw, 1438px);
+    }
+  }
+  @media (--laptop) {
+    .is-intro .section__image {
+      right: 57%;
+      left: auto;
+    }
   }
   @media (--tablet) {
     .is-playphrase-way .section__image {
@@ -2279,10 +2301,19 @@
   }
   .manual__screen {
     padding-inline: var(--size-2);
+    max-width: 100%;
   }
   @media (--tablet) {
     .manual__screen {
       flex: min(50% - var(--size-2), 407px);
+    }
+  }
+  .manual__screen.is-double img {
+    border-radius: var(--border-radius-base);
+  }
+  @media (--tablet) {
+    .manual__screen.is-double {
+      flex: none;
     }
   }
   .manual__screen.is-top {

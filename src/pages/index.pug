@@ -35,8 +35,10 @@ block content
           h2#subhead-intro Tried Everything? But Still Haven&rsquo;t Learned the Language?
           p.bold That&rsquo;s because you&rsquo;re overloading your brain with&nbsp;80% unknown information, causing it&nbsp;to&nbsp;regularly shut down, just like circuit breakers trip during power surges.
           p You need to&nbsp;learn a&nbsp;foreign language in&nbsp;reverse proportion — using material that you already understand 80&ndash;90% of&nbsp;(for absolute beginners, this means images with captions or&nbsp;videos with subtitles). Without overloads, your brain works best: absorbing information like a&nbsp;sponge.&nbsp;
-            button.link.is-modal-toggle(type='button' data-target='modal-intro') Learn more
+            button.link.is-modal-toggle(type='button' data-target='modal-intro') Show more
           .timeline-dot
+        figure.section__image
+          +rImage('pages/index/wps.png', 'PlayPhrase.me desktop UI')
 
     section.section.is-playphrase-way(aria-labelledby='subhead-playphraseme-way' data-animation)
       .container
@@ -46,7 +48,7 @@ block content
           h2#subhead-playphraseme-way Learn a&nbsp;Language with playphrase.me
           p.bold Use playphrase.me for daily language learning through immersive distance learning: in&nbsp;the morning, study new phrases, during the day, listen passively, and in&nbsp;the evening, reinforce and expand your knowledge. Weekly, review learned phrases and add them to&nbsp;your vocabulary by&nbsp;watching clips from movies and series.
           p One hour a&nbsp;day will quickly improve your language comprehension and help you master useful expressions.&nbsp;
-            button.link.is-modal-toggle(type='button' data-target='modal-method') Learn more
+            button.link.is-modal-toggle(type='button' data-target='modal-method') Show more
           .timeline-dot
         figure.section__image
           +rImage('pages/index/phone.png', 'PlayPhrase.me mobile UI')
@@ -60,12 +62,12 @@ block content
           ol
             li <strong>Don&rsquo;t study grammar; instead, look for patterns by&nbsp;listening to&nbsp;speech.</strong> The traditional method of&nbsp;studying grammar scares most people — endless rules and exceptions discourage the main goal — communicating in&nbsp;the new language. Therefore, download a&nbsp;cheat sheet for the grammar of&nbsp;the chosen language and refer to&nbsp;it&nbsp;only when you don&rsquo;t understand why a&nbsp;character in&nbsp;a&nbsp;movie or&nbsp;series said something a&nbsp;certain way.
             li <strong>Try to&nbsp;notice the phrases you&rsquo;re learning in&nbsp;other sources,</strong> such as&nbsp;movies, series, or&nbsp;music. This will help reinforce the knowledge and give it&nbsp;more context.<br>
-              button.link.is-modal-toggle(type='button' data-target='modal-outro') Learn more
+              button.link.is-modal-toggle(type='button' data-target='modal-outro') Show more
           .timeline-dot
 
     form.form.is-search#form-search(action='/search' role='search')
       label(for='form-search-input') Search new words and phrases
-      input#form-search-input(name='q' type='search' value='hola amigos' autocorrect='off' autocapitalize='off' autocomplete='off' placeholder='Search…')
+      input#form-search-input(name='q' type='search' value='hola amigos' autocapitalize='off' autocomplete='off' placeholder='Search…')
       button.btn.is-primary(type='submit') Start learning
 
   dialog.modal#modal-intro
@@ -84,7 +86,7 @@ block content
           li
             p You don't need to memorize or cram. Learn like children do — in infancy, we don't speak, we listen first. Linguists call this intensive passive listening. Dedicate at least six months to listening to and reading words and phrases in the new language: the best way to do this is with videos with subtitles in the original language (without translation).
             p Choose material that you understand at least 80% or more. Constantly repeat the same words and phrases — <b>practice makes perfect</b>. Gradually make the program more challenging: cartoons for little kids—cartoons and movies for teens—popular series and movies—educational programs.
-          li: p After six months, when most learners develop <b>language intuition<b>, you can move on&nbsp;to&nbsp;speaking and writing practice.
+          li: p After six months, when most learners develop <b>language intuition</b>, you can move on&nbsp;to&nbsp;speaking and writing practice.
         a.btn(href="https://www.playphrase.me/#/search?q=Hola+Amigos&language=es") Get Started
 
   dialog.modal#modal-method
@@ -106,6 +108,13 @@ block content
                 ul
                   li On&nbsp;a&nbsp;PC, the list appears on&nbsp;the right side of&nbsp;the screen when the player is&nbsp;paused and the cursor hovers over the frame.
                   li On&nbsp;a&nbsp;phone, to&nbsp;open the list, tap the three dots button in&nbsp;the bottom right corner and select Common phrases from the menu.
+                    .flex-grid.manual
+                      figure.manual__screen.is-double
+                        +rImage('pages/index/common-phrases.png', 'Favorites on desktop')
+                      figure.manual__screen.is-bottom
+                        +rImage('pages/index/favorites-menu-button-mobile.png', 'Favorites on mobile')
+                      figure.manual__screen.is-bottom
+                        +rImage('pages/index/common-phrases-mobile.png', 'Favorites on mobile')
           li Choose a&nbsp;phrase you want to&nbsp;learn: for example, <strong>&iquest;C&oacute;mo est&aacute; usted?</strong> (How are you?) or&nbsp;<strong>Je ne&nbsp;sais pas</strong> (I&nbsp;don&rsquo;t know).
             ul
               li Press the play button and watch a&nbsp;few short clips with the phrase. Focus on&nbsp;pronunciation and intonation, and pay attention to&nbsp;the context.
@@ -113,6 +122,11 @@ block content
                 ul
                   li On&nbsp;a&nbsp;PC, click the star button in&nbsp;the bottom right corner of&nbsp;the screen.
                   li On&nbsp;a&nbsp;phone, tap the three dots button in&nbsp;the bottom right corner and select Favourite the Phrase from the menu.
+                .flex-grid.manual
+                  figure.manual__screen.is-top
+                    +rImage('pages/index/favorites-button-desktop.png', 'Favorites on desktop')
+                  figure.manual__screen.is-bottom
+                    +rImage('pages/index/favorites-menu-mobile.png', 'Favorites on mobile')
               li For the first six months, just listen; then start repeating the phrase aloud several times, trying to&nbsp;mimic the intonation and accent.
               li If&nbsp;the phrase is&nbsp;too long or&nbsp;complex, break it&nbsp;down into parts and practice each separately.
           li <strong>Tip</strong>: Start with simple and frequently used phrases to&nbsp;get accustomed to&nbsp;language structures faster.
@@ -153,8 +167,10 @@ block content
       header
         h2 Listen, Take Your Time, and Get Comfortable
       .modal__body
-        ol(style="--start-counter: 3;")
-          li: p <strong>When watching movies or&nbsp;series in&nbsp;the language you&rsquo;re learning, pay attention to&nbsp;the phrases you already know</strong> and try to&nbsp;repeat them after the actors.
+        ol
+          li: p <strong>Don&rsquo;t study grammar; instead, look for patterns by&nbsp;listening to&nbsp;speech.</strong> The traditional method of&nbsp;studying grammar scares most people — endless rules and exceptions discourage the main goal — communicating in&nbsp;the new language. Therefore, download a&nbsp;cheat sheet for the grammar of&nbsp;the chosen language and refer to&nbsp;it&nbsp;only when you don&rsquo;t understand why a&nbsp;character in&nbsp;a&nbsp;movie or&nbsp;series said something a&nbsp;certain way.
+          li: p <strong>Try to&nbsp;notice the phrases you&rsquo;re learning in&nbsp;other sources,</strong> such as&nbsp;movies, series, or&nbsp;music. This will help reinforce the knowledge and give it&nbsp;more context.
+          li#tip-03: p <strong>When watching movies or&nbsp;series in&nbsp;the language you&rsquo;re learning, pay attention to&nbsp;the phrases you already know</strong> and try to&nbsp;repeat them after the actors.
           li
             p <strong>Use daily reminders</strong> to&nbsp;study the language. Daily reminders on&nbsp;your smartphone are a&nbsp;simple way to&nbsp;get yourself into the habit of&nbsp;studying English. Even if&nbsp;you don&rsquo;t start right away, such reminders will help you subconsciously prepare for the task. Gradually, your brain will get used to&nbsp;the new activity, and it&nbsp;won&rsquo;t seem so&nbsp;difficult anymore.
             .flex-grid.manual

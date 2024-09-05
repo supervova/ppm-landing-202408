@@ -59,6 +59,15 @@ const openModal = (modal) => {
   if (header) {
     toggleTitleStyle(header, '.modal[open]');
   }
+
+  if (modal.id === 'modal-outro') {
+    const tipElement = modal.querySelector('#tip-03');
+    if (tipElement) {
+      setTimeout(() => {
+        tipElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 800);
+    }
+  }
 };
 
 // Toggle modal

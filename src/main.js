@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // DOM elements
   const cefr = document.querySelector('.cefr');
   const main = document.querySelector('main.main');
-  const parallaxImage = document.querySelector(
+  const imgIntro = document.querySelector('.is-intro .section__image img');
+  const imgMethod = document.querySelector(
     '.is-playphrase-way .section__image img'
   );
   const topButton = document.querySelector('.header .btn');
@@ -33,10 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
       cefr.style.transform = `translateY(-${translateY}px)`;
     }
 
-    // Parallax effect for .section.is-playphrase-way (for screens wider than 768px)
+    // Parallax effect for images
+    const parallaxTranslateY = scrollPosition * -0.32;
     if (window.matchMedia('(min-width: 768px)').matches) {
-      const parallaxTranslateY = scrollPosition * -0.32;
-      parallaxImage.style.transform = `translateY(${parallaxTranslateY}px)`;
+      imgMethod.style.transform = `translateY(${parallaxTranslateY}px)`;
+    }
+
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      imgIntro.style.transform = `translateY(${parallaxTranslateY}px)`;
     }
   }
 
@@ -93,12 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
   animatedElements.forEach((element) => observer.observe(element));
 
   // Event listeners
+
   window.addEventListener('scroll', () => {
     updateParallax();
     updateScrollEffects();
   });
 
   window.addEventListener('resize', () => {
+    imgIntro.style.transform = 'translateY(0)';
     updateParallax();
   });
 

@@ -45,6 +45,13 @@ ul {
   margin-bottom: var(--size-2);
 }
 
+// nested
+ol ol,
+ul ul,
+ul ol {
+  padding-left: var(--size-2);
+}
+
 ul {
   padding-left: var(--size-3);
 
@@ -59,13 +66,10 @@ ul:not(.list.is-unstyled):not(.list.is-inline) > li::marker {
 }
 
 ol {
-  --start-counter: 1; /* Устанавливаем начальное значение для счетчика */
-  counter-reset: list-item calc(var(--start-counter) - 1);
   list-style: none;
   padding-inline: 0;
 
   li {
-    counter-increment: list-item; /* Шаг увеличения всегда равен единице */
     position: relative;
     padding-left: 2em;
 
